@@ -1,14 +1,35 @@
+# kind: RoleBinding
+# apiVersion: rbac.authorization.k8s.io/v1
+# metadata:
+#    name: viewer-binding
+# subjects:
+# - kind: User
+#    name: janedoe@example.com
+# roleRef:
+#    kind: Role
+#    name: viewer
+#    apiGroup: rbac.authorization.k8s.io
+# ---
+# kind: RoleBinding
+# apiVersion: rbac.authorization.k8s.io/v1
+# metadata:
+#   name: developer-binding
+# subjects:
+# - kind: User
+#   name: hkk133596@gmail.com
+# roleRef:
+#   kind: Role
+#   name: developer
+#   apiGroup: rbac.authorization.k8s.io
+---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: root-developer
+  name: ratings-admin-binding
 subjects:
-# Google Cloud user account
 - kind: User
   name: hkk133596@gmail.com
-- kind: User
-  name: mialiu755@gmail.com
 roleRef:
   kind: ClusterRole
-  name: cluster-admin
+  name: ratings-admin
   apiGroup: rbac.authorization.k8s.io

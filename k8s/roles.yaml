@@ -1,25 +1,28 @@
-kind: ClusterRole
+kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: viewer
+  namespace: ratings
+  name: ratings-viewer
 rules:
-- apiGroups: ["", "apps", "batch", "extensions"]
-  resources: ["pods", "services", "deployments", "jobs"]
-  verbs: ["get", "list", "watch"]
+- apiGroups: ["*"] 
+  resources: ["pods","deployments","services","configmaps","jobs"] 
+  verbs: ["get", "list", "watch"] 
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: ratings
+  name: ratings-developer
+rules:
+- apiGroups: ["*"] 
+  resources: ["*"]
+  verbs: ["get", "list", "watch","create","patch","delete","update"] 
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: developer
-rules:
-- apiGroups: ["", "apps", "batch", "extensions"]
-  resources: ["pods", "services", "deployments", "jobs"]
-  verbs: ["get", "list", "watch", "create", "update", "patch"]
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: cluster-admin
+  name: ratings-admin
 rules:
 - apiGroups: ["*"]
   resources: ["*"]
