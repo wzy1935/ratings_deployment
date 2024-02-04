@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.application.name }}-db-service
+  namespace: {{ .Values.application.namespace }}
+spec:
+  selector:
+    app: {{ .Values.application.name }}-db
+  ports:
+    - protocol: TCP
+      port: {{ .Values.dbService.port }}
+      targetPort: {{ .Values.dbService.targetPort }}

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings-be-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ratings-be
+  template:
+    metadata:
+      labels:
+        app: ratings-be
+    spec:
+      containers:
+      - name: ratings-be-container
+        image: kokonot88/ratings_be:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: config-all
+          - secretRef:
+              name: secret-all

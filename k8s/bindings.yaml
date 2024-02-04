@@ -1,0 +1,14 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: root-developer
+subjects:
+# Google Cloud user account
+- kind: User
+  name: hkk133596@gmail.com
+- kind: User
+  name: mialiu755@gmail.com
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io

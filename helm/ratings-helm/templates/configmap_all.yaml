@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.application.name }}-configmap-all
+  namespace: {{ .Values.application.namespace }}
+data:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://ratings-db-service:5432/railway"
+  SPRING_DATASOURCE_USERNAME: "postgres"
+  SPRING_DATASOURCE_DRIVER-CLASS-NAME: "org.postgresql.Driver"
+  MYBATIS_CONFIGURATION_MAP-UNDERSCORE-TO-CAMEL-CASE: "false"
+  MYBATIS_TYPE_HANDLERS_PACKAGE: "org.apache.ibatis.type.ArrayTypeHandler"
+  RATINGS_DB-SALT: "dfvakckvkcm"
+  RATINGS_JWT-SECRET: "59gffolwZyIlfPFnLN6fcDJIsTr4ajHs1m8lu945XyE="
+  POSTGRES_USER: "postgres"

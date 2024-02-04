@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.application.name }}-be-deployment
+  namespace: {{ .Values.application.namespace }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.application.name }}-be
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.application.name }}-be
+    spec:
+      containers:
+      - name: {{ .Values.application.name }}-be-container
+        image: {{ .Values.be.container }}
+        ports:
+        - containerPort: {{ .Values.be.containerPort }}
+        envFrom:
+          - configMapRef:
+              name: {{ .Values.application.name }}-configmap-all
+          - secretRef:
+              name: {{ .Values.application.name }}-secret-all

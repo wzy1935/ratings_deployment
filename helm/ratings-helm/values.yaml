@@ -1,0 +1,20 @@
+application:
+  name: ratings
+  namespace: ratings
+  local: true 
+
+db:
+  container: "wzy1935/ratings_db:latest"
+  containerPort: 5432
+
+dbService:
+  port: 5432
+  targetPort: 5432
+
+be:
+  container: "kokonot88/ratings_be:latest"
+  containerPort: 8080
+
+beService:
+  port: 8080
+  targetPort: 8080

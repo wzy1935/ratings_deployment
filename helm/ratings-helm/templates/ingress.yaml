@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.application.name }}-ingress
+  namespace: {{ .Values.application.namespace }}
+  # annotations:
+  #   cert-manager.io/cluster-issuer: ca-cluster-issuer
+  #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  {{if eq .Values.application.local true}}
+  ingressClassName: nginx
+  {{end}}
+  rules:
+  - http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.application.name }}-be-service
+            port:
+              number: {{ .Values.beService.targetPort }}

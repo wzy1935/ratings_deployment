@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ratings-db
+spec:
+  serviceName: "ratings-db"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings-db
+  template:
+    metadata:
+      labels:
+        app: ratings-db
+    spec:
+      containers:
+      - name: postgres-container
+        image: wzy1935/ratings_db:latest
+        envFrom:
+          - configMapRef:
+              name: config-all
+          - secretRef:
+              name: secret-all
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
