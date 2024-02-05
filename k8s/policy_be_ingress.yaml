@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: be-only-access-ingress-from8080
+spec:
+  podSelector:
+    matchLabels:
+      app: ratings-be 
+  policyTypes:
+  - Ingress
+  ingress:
+  - ports:
+    - port: 8080

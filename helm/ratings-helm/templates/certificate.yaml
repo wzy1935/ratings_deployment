@@ -10,7 +10,7 @@ spec:
   privateKey:
     rotationPolicy: Always
     algorithm: RSA
-    size: 4096
+    size: 2048
   # dnsNames: 
   # - cluster.local
   issuerRef:
