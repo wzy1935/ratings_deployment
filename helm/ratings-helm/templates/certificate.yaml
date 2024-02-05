@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: certificate-tls
+  namespace: {{ .Values.application.namespace }}
+spec:
+  isCA: true
+  commonName: ratings-k8s
+  secretName: my-ca-secret
+  privateKey:
+    rotationPolicy: Always
+    algorithm: RSA
+    size: 4096
+  # dnsNames: 
+  # - cluster.local
+  issuerRef:
+    name: ca-cluster-issuer
+    kind: ClusterIssuer
