@@ -33,7 +33,7 @@ docker build -t <YOUR_IMAGE_NAME> .
 
 ```
 cd ratings_be
-
+docker build -t <YOUR_IMAGE_NAME> .
 ```
 
 **Database:**
