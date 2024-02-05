@@ -24,6 +24,29 @@ Our application supports rich functions, e.g., get ratings (GET) or create ratin
 
 ## TLS
 
+Our application uses certificates signed by self-made certificate authority. We use cert-manager to generate certificates, which a openssl created  certificate served as root certificate authority. The REST API can be access from outside of the cluster and the application runs well on https.  
+
+To set the TLS on kubenete cluster:
+
+Use openssl to generate a self-signed root CA certificate:
+
+```
+openssl req -x509 -nodes -newkey rsa:2048 -keyout ca.key.pem -out ca.cert.pem -days 365
+```
+This command will create ca.key.pem (private key) and ca.cert.pem (root certificate) files.
+
+Create a Kubernetes Secret to store the root CA certificate:
+```
+kubectl create secret tls -n <namespace> ca-key-pair --cert=ca.cert.pem --key=ca.key.pem
+```
+Use the cert-manager by apply 'certificate.yaml' and 'clusterissuer.yaml'.
+
+Enable the ingress with certain certificate:
+
+```
+kubectl annotate ingress <ingress name> -n <namespace> nginx.ingress.kubernetes.io/ssl-certificate=<namespace>/<certificate secret name>
+```
+
 
 
 ## Helm Chart
