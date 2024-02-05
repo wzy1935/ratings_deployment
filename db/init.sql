@@ -179,76 +179,6 @@ ALTER TABLE ONLY public.app_rating ALTER COLUMN rating_id SET DEFAULT nextval('p
 
 ALTER TABLE ONLY public.app_user ALTER COLUMN id SET DEFAULT nextval('public.app_user_id_seq'::regclass);
 
-
---
--- Data for Name: app_board; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.app_board (board_id, title, description, overall_score, score_1, score_2, score_3, score_4, score_5, creator_id, creator_name) FROM stdin;
-15	test58908	tteesst	0	0	0	0	0	0	6	wzy
-16	67	tteesst	0	0	0	0	0	0	6	wzy
-17	677	tteesst	0	0	0	0	0	0	6	wzy
-18	6777	tteesst	0	0	0	0	0	0	6	wzy
-19	67777	tteesst	0	0	0	0	0	0	6	wzy
-21	sd	sd	0	0	0	0	0	0	6	wzy
-14	test5890	tteesst	0	0	0	0	0	0	6	wzy
-10	test	tteesst	0	0	0	0	0	0	6	wzy
-24	add1	add	0	0	0	0	0	0	7	test
-20	555	tteesst	NaN	0	0	0	0	0	6	wzy
-32	81	test1	0	0	0	0	0	0	9	mia
-36	test 1234123	1	0	0	0	0	0	0	9	mia
-11	test5	tteesst	5	0	0	0	0	1	6	wzy
-8	test6	etc	3	0	1	0	1	0	7	test
-13	test589	tteesst	3	0	0	1	0	0	6	wzy
-23	1234	test	NaN	0	0	0	0	0	9	mia
-25	1	1	0	0	0	0	0	0	9	mia
-26	2	2	0	0	0	0	0	0	9	mia
-27	3	3	0	0	0	0	0	0	9	mia
-28	4	test	0	0	0	0	0	0	9	mia
-29	5	test	0	0	0	0	0	0	9	mia
-30	6	test	0	0	0	0	0	0	9	mia
-31	7	test	0	0	0	0	0	0	9	mia
-33	9	test	0	0	0	0	0	0	9	mia
-34	10	1	0	0	0	0	0	0	9	mia
-35	11	1	0	0	0	0	0	0	9	mia
-22	2345	2345	4.5	0	0	0	1	1	9	mia
-2	AdminModified New	des again	2.75	1	0	2	1	0	8	admin1
-\.
-
-
---
--- Data for Name: app_rating; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.app_rating (rating_id, description, score, board_id, creator_id, creator_name) FROM stdin;
-1	modified	4	2	7	test
-3	bad	1	2	8	admin1
-9	123	4	8	9	mia
-25	11	3	2	9	mia
-8	123	4	22	9	mia
-26	test	5	11	6	wzy
-28	ceshi	2	8	10	fenshen
-29	this is a test desc	3	13	6	wzy
-30	this is a test desc. I need to come up with more words, really.	5	22	6	wzy
-31	a test. a test. a test. a test. a test. a test. 	3	2	6	wzy
-\.
-
-
---
--- Data for Name: app_user; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.app_user (id, name, password, is_admin) FROM stdin;
-4	root	fb1292b37fc99b3211bd9c44e5f41169	f
-5	hello	b269cb815865220ccd7911ffa82a3af4	f
-6	wzy	537a6b35a94d3d56c56f73a003a32251	t
-7	test	6c586d322824489150ddb41d9199ecfb	f
-8	admin1	6c586d322824489150ddb41d9199ecfb	t
-9	mia	493f8877c6006aaf450669a265c28e7d	f
-10	fenshen	26385084586b4956a5d55df60aa2e1e9	f
-\.
-
-
 --
 -- Name: app_board_board_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -260,7 +190,7 @@ SELECT pg_catalog.setval('public.app_board_board_id_seq1', 36, true);
 -- Name: app_rating_rating_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.app_rating_rating_id_seq', 31, true);
+SELECT pg_catalog.setval('public.app_rating_rating_id_seq', 36, true);
 
 
 --

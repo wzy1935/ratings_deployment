@@ -21,7 +21,7 @@ beService:
   targetPort: 8080
 
 fe:
-  container: "wzy1935/ratings_fe:v1"
+  container: "wzy1935/ratings_fe:v3"
   containerPort: 80
 
 feService:
