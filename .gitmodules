@@ -1,0 +1,6 @@
+[submodule "ratings_fe"]
+	path = ratings_fe
+	url = https://github.com/wzy1935/ratings_fe.git
+[submodule "ratings_be"]
+	path = ratings_be
+	url = https://github.com/wzy1935/ratings_be.git
