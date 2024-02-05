@@ -1,10 +1,11 @@
 application:
   name: ratings
   namespace: ratings
-  local: true 
+  local: false 
 
 db:
-  container: "wzy1935/ratings_db:latest"
+  # container: "postgres:latest"
+  container: "wzy1935/ratings_db:v2"
   containerPort: 5432
 
 dbService:
@@ -12,9 +13,17 @@ dbService:
   targetPort: 5432
 
 be:
-  container: "kokonot88/ratings_be:latest"
+  container: "kokonot88/ratings_be:v2"
   containerPort: 8080
 
 beService:
   port: 8080
   targetPort: 8080
+
+fe:
+  container: "wzy1935/ratings_fe:v1"
+  containerPort: 80
+
+feService:
+  port: 80
+  targetPort: 80

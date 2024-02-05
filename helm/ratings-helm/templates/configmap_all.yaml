@@ -12,3 +12,4 @@ data:
   RATINGS_DB-SALT: "dfvakckvkcm"
   RATINGS_JWT-SECRET: "59gffolwZyIlfPFnLN6fcDJIsTr4ajHs1m8lu945XyE="
   POSTGRES_USER: "postgres"
+  VITE_BACKEND_URL: "/"

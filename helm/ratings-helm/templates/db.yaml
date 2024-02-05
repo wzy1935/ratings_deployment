@@ -27,6 +27,7 @@ spec:
         volumeMounts:
         - name: {{ .Values.application.name }}-db-pvc
           mountPath: /var/lib/postgresql/data
+          subPath: pgdata
   volumeClaimTemplates:
   - metadata:
       name: {{ .Values.application.name }}-db-pvc

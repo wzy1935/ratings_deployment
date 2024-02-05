@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.application.name }}-fe-service
+  namespace: {{ .Values.application.namespace }}
+spec:
+  selector:
+    app: {{ .Values.application.name }}-fe
+  ports:
+  - protocol: TCP
+    port: {{ .Values.feService.port }}
+    targetPort: {{ .Values.feService.targetPort }}
