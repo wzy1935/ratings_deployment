@@ -4,7 +4,7 @@
 #    name: viewer-binding
 # subjects:
 # - kind: User
-#    name: janedoe@example.com
+#    name: <INSERT_GMAIL_ACCOUNT_HERE>
 # roleRef:
 #    kind: Role
 #    name: viewer
@@ -16,7 +16,7 @@
 #   name: developer-binding
 # subjects:
 # - kind: User
-#   name: hkk133596@gmail.com
+#   name: <INSERT_GMAIL_ACCOUNT_HERE>
 # roleRef:
 #   kind: Role
 #   name: developer
@@ -28,7 +28,7 @@ metadata:
   name: ratings-admin-binding
 subjects:
 - kind: User
-  name: hkk133596@gmail.com
+  name: <INSERT_GMAIL_ACCOUNT_HERE>
 roleRef:
   kind: ClusterRole
   name: ratings-admin
